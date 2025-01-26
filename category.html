@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+    background: #fff;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+  
+    }
+
+    header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Distribute items evenly */
+      width: 100%;
+      padding: 0;
+      margin: 0;
+
+    }
+
+    header .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      margin-left: 50px;
+    }
+
+    header nav {
+      flex-grow: 1; /* Allow the navigation to take up available space */
+      text-align: center; /* Center align the list */
+    }
+    header nav ul li a {
+      text-decoration: none; /* Remove default underline */
+      color: #000;
+      position: relative; /* Enable positioning for underline */
+    }
+    header nav ul li a {
+      text-decoration: none; /* Remove default underline */
+      color: #000; /* Text color */
+      position: relative; /* Needed for ::after positioning */
+    }
+
+    header nav ul li a::after {
+      content: ""; /* Creates an empty element for the underline */
+      position: absolute; /* Position it relative to the link */
+      left: 0; /* Start underline at the left */
+      bottom: -2px; /* Place it slightly below the text */
+      width: 100%; /* Full width of the text */
+      height: 2px; /* Thickness of the underline */
+      background-color: #000; /* Black underline */
+      visibility: hidden; /* Hide by default */
+      transform: scaleX(0); /* Start with no width */
+      transition: transform 0.3s ease, visibility 0.3s ease; /* Smooth animation */
+    }
+
+    header nav ul li a:hover::after,
+    header nav ul li a.active::after { /* Or if it’s the active link */
+      visibility: visible;
+      transform: scaleX(1); /* Expand the underline */
+    }
+
+
+    header nav ul {
+      list-style: none;
+      display: inline-flex; /* Use inline-flex to center in nav */
+      gap: 50px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      margin-left: 450px;
+    }
+    header nav ul li {
+      white-space: nowrap; /* Prevent text wrapping */
+    }
+
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    header nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    header .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    header .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 5px;
+      gap: 5px;
+      margin-left: 300px;
+    }
+
+    header .search-bar input {
+      border: none;
+      outline: none;
+      padding: 5px;
+    }
+
+    header .search-bar img {
+      max-height: 20px;
+      cursor: pointer;
+    }
+
+    header .icons {
+      display: flex;
+      gap: 10px;
+    }
+
+    header .icons img {
+      max-height: 20px;
+      margin-right: 0;
+    }
+    .related-items {
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+
+    .related-items h2 {
+      margin-bottom: 10px;
+    }
+
+    .item-list {
+      display: flex;
+      gap: 15px;
+    }
+
+    .item img {
+      max-width: 100%;
+    }
+    /*footer */
+
+    footer {
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      padding: 40px 90px;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap; /* ചെറിയ സ്‌ക്രീനില്‍ വ്രാപ്പ് ചെയ്യുക */
+      justify-content: space-between; /* ഉള്ളടക്കം മധ്യഭാഗത്ത് സജ്ജമാക്കുക */
+      gap: 20px; /* സ്‌പേസിംഗ് */
+      padding: 20px 0; /* പാഡിംഗ് സജ്ജമാക്കുക */
+    }
+    .footer-section input[type="email"]::placeholder {
+      color: #ccc; /* Light gray placeholder text */
+    }
+
+    .footer-section ul li a:hover {
+      color: #007BFF; /* Blue on hover */
+    }
+
+    .footer-section input[type="email"] {
+      width: 90%; /* Full width */
+      padding: 10px; /* Adjust padding */
+      margin-top: 10px; /* Space from top */
+      border: 1px solid #fff; /* Add white border */
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+      border-radius: 5px; /* Rounded corners */
+    }
+    .footer-section button {
+      padding: 10px 15px;
+      background-color: #007BFF; /* Blue button */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .footer-section button:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+    }
+    .footer-section .app-links a img {
+      max-width: 120px;
+      margin-right: 10px;
+    }
+    .footer-bottom {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap; /* Wrap on smaller screens */
+      justify-content: space-between; /* Center content */
+      gap: 20px; /* Consistent spacing */
+      padding: 20px 0; /* Adjust padding */
+    }
+    .footer-section {
+      flex: 1 1 250px; /* Minimum width for each section */
+      text-align: left; /* Center text */
+      margin-bottom: 20px;
+      padding: 15px;
+      box-sizing: border-box; /* Add spacing at the bottom */
+    }
+    .footer-section a {
+      color: #fff; /* White links */
+      text-decoration: none;
+    }
+    .footer-section a:hover {
+      color: #007BFF; /* Blue hover effect */
+    }
+    .footer-section h3, .footer-section h4 {
+      font-size: 16px; /* Unified font size for titles */
+      margin-bottom: 20px;
+      text-align: left; /* Add spacing */
+    }
+    .footer-section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .subscribe-text {
+      font-size: 18px;
+      margin-bottom: 20px; /* Smaller text for subscribe and offer sections */
+    }
+    .offer-text{
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    .save-text {
+      font-size: 13px; /* Adjust font size */
+      color: #FAFAFA;
+    /* Change the color */
+      text-align: left;
+      margin-bottom: 9px; /* Center align the text */ /* Make the text bold */
+    }
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+    }
+    .email-input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+    .footer-section ul li {
+      margin-bottom: 15px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .app-links {
+      display: flex;/* Stack items vertically */
+      align-items: flex-start;
+      justify-content: flex-start; /* Center align */
+      gap: 10px; /* Space between elements */
+    }
+    .qr-code {
+      width: 100px;
+      display: block;
+      margin: 0;
+      float: left;/* Adjust size of QR code */
+    }
+    .store-links a img {
+      max-width: 120px; /* Adjust size of store buttons */
+    }
+    .social-icons img {
+      width: 35px; /* Uniform width for all icons */
+      height: 35px; /* Uniform height for all icons */
+      object-fit: contain; /* Ensures proper scaling of images */
+      margin: 10px 5px;
+      display: inline-block; 
+    }
+    .social-icons img[alt="Facebook"] {
+      width: 35px !important;
+      height: 35px !important;
+      transform: scale(0.9) !important; /* Ensures scaling is applied */
+      object-fit: contain !important; /* Ensures the icon fits properly */
+    }
+
+    .store-links a {
+      display: block; /* Ensure each store link is on a new line */
+    }
+    .store-links {
+      display: flex; 
+      flex-direction: column;/* Align Google Play and App Store images side by side */
+      gap: 10px; /* Add consistent spacing between the images *//* Center align within the container */
+    }
+    .footer-bottom { 
+      margin-top: 20px;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15PX;
+        padding: 10px;
+      }
+      .footer-section {
+        margin: 0 0 15px 0;
+        text-align: center;
+      }
+      .app-links {
+        flex-direction: column;
+        align-items: center;
+      }
+      .store-links a img {
+        margin-bottom: 15px;
+        }
+    }
+    .footer-section input[type="email"] {
+        width: 90%; /* Full width */
+        padding: 8px; /* Adjust padding */
+        margin: 0 auto; /* Center it */
+        border: 1px solid #fff; /* Add white border */
+        background-color: #000; /* Black background */
+        color: #fff; /* White text */
+        border-radius: 5px; /* Rounded corners */
+    }
+
+    .footer-section input[type="email"]::placeholder {
+        color: #ccc; /* Light gray placeholder text */
+    }
+
+    .footer-section button {
+        display: none; /* Hide button if not in use */
+    }
+    /*product deials */
+    .product-container {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+    .icon-container {
+        position: absolute; 
+        top: 10px; 
+        right: 10px; 
+        display: flex; 
+        gap: 10px; 
+    }
+
+    .icon-container img {
+        width: 24px; 
+        height: 24px;
+        cursor: pointer; 
+    }
+    .product-image {
+        flex: 1;
+        background-color: #f5f5f5;
+        padding: 40px; 
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .product-image img {
+        max-width: 100%;
+        max-height: auto;
+        object-fit: contain;
+
+    }
+    .product-info {
+        flex: 1;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-info h1{
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 0;
+    }
+    .product-info p{
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 10px;
+     }
+    .product-info h3 {
+        margin: 0;
+        display: inline; 
+    }
+
+    .product-info .color-options {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    }
+
+    .stars {
+    font-size: 1rem;
+    color:gold; 
+    }
+    .in-stock {
+      font-size: 0.9rem;
+      color: green; 
+    }
+
+    .reviews {
+    font-size: 0.9rem;
+     color: #888; 
+    }
+
+    .product-info .color {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+    .product-info .color.green {
+    background-color: green;
+    border: 1px solid #000
+    }
+    .product-info .color.red-shade {
+    background-color: #e07575;
+    } 
+    .color-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .price {
+      font-size: 1.4rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #555; 
+      margin-bottom: 15px; 
+      border-bottom: 1px solid #ddd; 
+      padding-bottom: 15px; 
+    }
+
+    .color-options {
+      display: flex;
+      gap: 10px;
+      padding-bottom: 15px;
+      padding-top: 10px;
+    }
+
+    .delivery-info {
+        border: 1px solid #ddd;
+        padding: 15px;
+        border-radius: 5px;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+    .delivery-info strong {
+        color: #000;
+    }
+    .delivery-info p {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+    .delivery-info p span {
+      text-decoration: underline; 
+    }   
+    .delivery-info img {
+        width: 20px;
+        height: 20px;
+    }
+    .delivery-info span {
+      display: block; 
+      color: #555; 
+    }
+    .delivery-info strong {
+        color: #000;
+        margin-bottom: 5px;
+    }
+
+    .delivery-info hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 10px 0;
+    }
+    .delivery-info .below-text {
+      display: block; 
+      text-decoration: underline; 
+      color: #555; 
+    }
+
+    .delivery-info .details {
+      text-decoration: underline;
+      color: blue; 
+      cursor: pointer; 
+    }
+    .info {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+
+    .info div {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .info img {
+      width: 34px; /* Adjust icon size */
+      height: 34px;
+      margin-right: 15px;
+    }
+
+    .info .text {
+      line-height: 1.4;
+      display: block;
+    }
+    .info .text p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 5px;
+    }
+    .info strong {
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .info p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .info hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 15px 0;
+    }
+
+    .info .details {
+      text-decoration: underline;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .details {
+      text-decoration: underline;
+      color: blue;
+      cursor: pointer;
+    }
+    .breadcrumb {
+    padding: 50px 80px; /* Light background for breadcrumb */
+    font-size: 0.9rem;
+    margin-bottom: 20px; /* Space below the breadcrumb */
+    }
+
+    .breadcrumb a {
+    text-decoration: none;
+     color: #555;
+    }
+
+    .breadcrumb a:hover {
+    text-decoration: underline; /* Underline on hover */
+    }
+
+    .breadcrumb p {
+    margin: 0; /* Remove margin for alignment */
+    }
+    .categories-heading {
+      font-family: Poppins, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: left;
+      color: #FF0000; /* Red color for text */
+      display: flex;
+      align-items: center;
+      gap: 8px; /* Space between icon and text */
+      margin-bottom: 10px;
+      padding-top: 60px;
+      padding-bottom: 60px;
+      margin-left: 30px;
+    }
+    .categories-icon {
+      display: inline-block;
+      width: 15px; /* Adjust size of the icon */
+      height: 28px;
+      background-color: #FF0000; /* Red color for the icon */
+      border-radius: 2px;
+    }
+    .featured-product-list {
+      display: flex; /* Align children horizontally */
+      justify-content: space-between; /* Equal spacing between products */
+      flex-wrap: nowrap; /* Allow wrapping if needed */
+      gap: 20px;
+      overflow-x: auto; 
+      margin-bottom: 100px;/* Add spacing between products */
+    }
+
+    .product-info {
+      margin-top: 10px;
+    }
+
+    .badgeo {
+      position: absolute; /* Position relative to the product card */
+    top: 10px; /* Distance from the top of the card */
+    left: 10px; /* Distance from the left of the card */
+    background-color: #ff4d4f; /* Badge background color */
+    color: #fff; /* Text color */
+    padding: 5px 10px; /* Spacing inside the badge */
+    font-size: 14px; /* Text size */
+    font-weight: bold; /* Make text bold */
+    border-radius: 5px; 
+    }
+    @media (max-width: 768px) {
+      .featured-product {
+        width: calc(50% - 20px); /* Two cards per row on smaller screens */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .featured-product {
+        width: 100%; /* One card per row on very small screens */
+      }
+    }
+        .icon-container {
+      display: flex; /* Enable flexbox layout */
+      flex-direction: column; /* Arrange items vertically */
+      align-items: center; /* Center align items horizontally */
+      gap: 10px; /* Add spacing between the icons */
+      position: absolute; /* Position it relative to the parent card */
+      top: 10px; /* Adjust vertical positioning */
+      right: 10px; /* Adjust horizontal positioning */
+      z-index: 1; /* Ensure the icons are above the product image */
+    }
+
+    .icon-container img {
+      width: 24px; /* Set width for the icons */
+      height: 24px; /* Set height for the icons */
+      cursor: pointer; /* Change cursor to pointer for interactivity */
+      background: rgba(255, 255, 255, 0.8); /* Optional: Add a background for better visibility */
+      border-radius: 50%; /* Optional: Make icons circular */
+      padding: 5px; /* Optional: Add padding around the icons */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for a floating effect */
+    }
+
+    .icon-container img:hover {
+      background: #f0f0f0; /* Add a hover effect for icons */
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .add-to-cart {
+      background-color: #28a745;
+      color: white;
+    }
+    .products-grid {
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      grid-template-columns: repeat(4, 1fr);
+      
+      
+    }
+    .product-listo {
+        max-width: 100%; 
+        overflow: hidden;
+      
+    }
+    .product-card{
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 10px 0;
+    }
+    .product-rating {
+      display: flex;
+      align-items: center;
+    }
+    .product-price{
+      color: #dc3545;
+    }
+    .star {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      background-color: #ddd;
+      clip-path: polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+      );
+      margin-right: 5px;
+    }
+
+    .star.full {
+      background-color: #ffd700; 
+    }
+
+    .star.half {
+      background: linear-gradient(
+        to right,
+        #ffd700 50%, 
+        #ddd 50% 
+      );
+    }
+
+    .star.empty {
+      background-color: #ddd; 
+    }
+    .product-rating h3 {
+      color: #666;
+    }
+    .product-image {
+      position: relative;
+      display: inline-block;
+    }
+    .featured-product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    position: relative;
+  }
+  .badgeo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    z-index: 1;
+  }
+        
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="logo">Exclusive</div>
+      <nav>
+        <ul>
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="search-bar">
+          <input type="text" placeholder="What are you looking for?">
+          <img src="./images/search.svg" alt="Search Icon">
+        </div>
+        <div class="icons">
+          <a href="#"><img src="./images/wishlist.svg" alt="Wishlist"></a>
+          <a href="#"><img src="./images/Cart.svg" alt="Cart"></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="breadcrumb">
+    <p><a href="#">Home</a> / <a href="#">Gaming</a> / Havic HV G-92 Gamepad</p>
+  </section>
+
+
+  <section class="product-details">
+    <div class="product-container">
+      <div class="product-image">
+        <img src="./images/image 63.png" alt="Havic HV G-92 Gamepad">
+      </div>
+      <div class="product-info">
+        <h1>Havic HV G-92 Gamepad</h1>
+        <p class="rating">
+          <span class="stars">★★★★☆</span>
+          <span class="reviews">(150 Reviews)</span>
+          <span class="in-stock">| In Stock</span>
+        </p>
+        <p class="price">$192.00</p>
+        <p class="description">PlayStation 5 Controller Skin. High-quality vinyl with air channel adhesive for easy bubble-free installation & mess-free removal. Pressure-sensitive.</p>
+        <div class="color-container">
+          <h3>Colours:</h3>
+          <div class="color-options">
+            <span class="color green"></span>
+            <span class="color red-shade"></span>
+          </div>
+        </div>        
+        <div class="info">
+          <div class="free-delivery">
+            <img src="./images/icon-delivery.svg" alt="Free Delivery" />
+            <div class="text">
+              <strong>Free Delivery</strong>
+              <p>Enter your postal code for Delivery Availability</p>
+            </div>
+          </div>
+          <hr />
+          <div class="return-delivery">
+            <img src="./images/icon-return.svg" alt="Return Delivery" />
+            <div class="text">
+              <strong>Return Delivery</strong>
+              <p>
+                Free 30 Days Delivery Returns. <span class="details">Details</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div class="categories-heading">
+    <span class="categories-icon"></span> Categories
+  </div>
+
+  <!--featured product-->
+  <section class="product-listo">
+    <div class="products-grid">
+      <!-- Product Card 9 -->
+      <div class="featured-product">
+        <div class="badgeo">-40%</div>
+        <img src="./images/9.png" alt="HAVIT HV-G92 Gamepad">
+        <div class="icon-container">
+          <img src="./images/wishlist.svg" alt="wishlist" class="wishlist-icon"/>
+          <img src="./images/Quick View.svg" alt="Quick View" class="quick-view-icon" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">RGB liquid CPU Cooler</div>
+          <div class="product-price">
+            <span class="current-price" style="color: red;">$160</span>  
+            <span class="original-price" style="color: #666; text-decoration: line-through;">$170</span>
+          </div>
+          <div class="product-rating">
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <h3>(65)</h3>
+          </div>
+      </div> 
+      </div>
+      <!-- Product Card 10 -->
+      <div class="featured-product">
+        <div class="badgeo">-35%</div>
+        <img src="./images/11.png" alt="AK-900 Wired Keyboard">
+        <div class="icon-container">
+          <img src="./images/wishlist.svg" alt="wishlist" class="wishlist-icon"/>
+          <img src="./images/Quick View.svg" alt="Quick View" class="quick-view-icon" />
+        </div>
+        <button>Add To Cart</button>
+        <div class="product-info">
+          <div class="product-name">RGB liquid CPU Cooler</div>
+          <div class="product-price">
+            <span class="current-price" style="color: red;">$160</span>  
+            <span class="original-price" style="color: #666; text-decoration: line-through;">$170</span>
+          </div>
+          <div class="product-rating">
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <h3>(65)</h3>
+          </div>
+      </div>
+      </div>
+      <!-- Product Card 11 -->
+      <div class="featured-product">
+        <div class="badgeo">-30%</div>
+        <img src="./images/10.png" alt="HAVIT HV-G92 Gamepad">
+        <div class="icon-container">
+          <img src="./images/wishlist.svg" alt="wishlist" class="wishlist-icon"/>
+          <img src="./images/Quick View.svg" alt="Quick View" class="quick-view-icon" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">RGB liquid CPU Cooler</div>
+          <div class="product-price">
+            <span class="current-price" style="color: red;">$160</span>  
+            <span class="original-price" style="color: #666; text-decoration: line-through;">$170</span>
+          </div>
+          <div class="product-rating">
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <h3>(65)</h3>
+          </div>
+      </div>
+      </div>
+      <!-- Product Card 12 -->
+      <div class="featured-product">
+        <img src="./images/12.png" alt="HAVIT HV-G92 Gamepad">
+        <div class="icon-container">
+          <img src="./images/wishlist.svg" alt="wishlist" class="wishlist-icon"/>
+          <img src="./images/Quick View.svg" alt="Quick View" class="quick-view-icon" />
+        </div>
+        <div class="product-info">
+          <div class="product-name">RGB liquid CPU Cooler</div>
+          <div class="product-price">
+            <span class="current-price" style="color: red;">$160</span>  
+            <span class="original-price" style="color: #666; text-decoration: line-through;">$170</span>
+          </div>
+          <div class="product-rating">
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <span class="star full"></span>
+            <h3>(65)</h3>
+          </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-section">
+        <h3>Exclusive</h3>
+        <p class="subscribe-text">Subscribe</p>
+        <p class="offer-text">Get 10% off your first order</p>
+        <input type="email" class="email-input" placeholder="Enter your email">
+      </div>      
+      <div class="footer-section">
+        <h4>Support</h4>
+        <ul>
+          <li>111 Bijoy Sarani, Dhaka, DH 1515, Bangladesh.</li>
+          <li>Email: exclusive@gmail.com</li>
+          <li>Phone: +88015-88888-9999</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Account</h3>
+        <ul>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Login / Register</a></li>
+          <li><a href="#">Cart</a></li>
+          <li><a href="#">Wishlist</a></li>
+          <li><a href="#">Shop</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Download App</h3>
+        <p class="save-text">Save $3 with App New User Only</p>
+        <div class="app-links">
+            <img src="./images/Qr Code.png" alt="QR Code" class="qr-code">
+            <div class="store-links">
+                <a href="#"><img src="./images/GooglePlay.png" alt="Google Play"></a>
+                <a href="#"><img src="./images/AppStore.png" alt="App Store"></a>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="./images/facebook.svg" alt="Facebook"></a>
+            <a href="#"><img src="./images/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="./images/icon-instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="./images/icon-linkedin.svg" alt="LinkedIn"></a>
+        </div>
+      </div>
+    <div class="footer-bottom">
+      <p>&copy; Copyright Rimel 2022. All rights reserved.</p>
+    </div>
+  </footer> 
+
+</body>
+</html>
