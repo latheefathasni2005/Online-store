@@ -2,115 +2,98 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  padding-top: 70px;
 
 }
 .container {
   max-width: 1200px; /* Set a fixed width */
   margin: 0 auto; /* Center the container */
   padding: 0 20px; /* Add spacing on both sides */
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
 }
 
 header {
   background: #fff;
-  padding: 0;
+  padding: 10px 0;
   border-bottom: 1px solid #ddd;
-  
+  width: 100%;
+  position: fixed; /* Header fix ആക്കാൻ */
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Other elements മുകളിൽ വരാൻ */
+  height: 80px;
+  line-height: 80px;
 }
 
 header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Distribute items evenly */
+  justify-content: space-between; /* Items ശരിയായി position ആക്കാൻ */
+  max-width: 1200px;
   width: 100%;
-  padding: 0;
-  margin: 0;
-
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 header .logo {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   color: #000;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  margin-left: 50px;
 }
-
-header nav {
-  flex-grow: 1; /* Allow the navigation to take up available space */
-  text-align: center; /* Center align the list */
-}
-header nav ul li a {
-  text-decoration: none; /* Remove default underline */
-  color: #000;
-  position: relative; /* Enable positioning for underline */
-}
-header nav ul li a {
-  text-decoration: none; /* Remove default underline */
-  color: #000; /* Text color */
-  position: relative; /* Needed for ::after positioning */
-}
-
-header nav ul li a::after {
-  content: ""; /* Creates an empty element for the underline */
-  position: absolute; /* Position it relative to the link */
-  left: 0; /* Start underline at the left */
-  bottom: -2px; /* Place it slightly below the text */
-  width: 100%; /* Full width of the text */
-  height: 2px; /* Thickness of the underline */
-  background-color: #000; /* Black underline */
-  visibility: hidden; /* Hide by default */
-  transform: scaleX(0); /* Start with no width */
-  transition: transform 0.3s ease, visibility 0.3s ease; /* Smooth animation */
-}
-
-header nav ul li a:hover::after, /* Show underline on hover */
-header nav ul li a.active::after { /* Or if it’s the active link */
-  visibility: visible;
-  transform: scaleX(1); /* Expand the underline */
-}
-
 
 header nav ul {
   list-style: none;
-  display: inline-flex; /* Use inline-flex to center in nav */
-  gap: 50px;
+  display: flex;
+  gap: 30px;
   margin: 0;
   padding: 0;
   align-items: center;
-  margin-left: 450px;
-}
-header nav ul li {
-  white-space: nowrap; /* Prevent text wrapping */
 }
 
+header nav ul li {
+  white-space: nowrap;
+}
 
 header nav ul li a {
   text-decoration: none;
   color: #000;
+  font-weight: 500;
+  position: relative;
 }
 
-header nav ul li a:hover {
-  text-decoration: underline;
+header nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover::after,
+header nav ul li a.active::after {
+  transform: scaleX(1);
 }
 
 header .header-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
 header .search-bar {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 5px;
+  border-radius: 20px;
+  padding: 5px 10px;
   gap: 5px;
-  margin-left: 300px;
 }
 
 header .search-bar input {
@@ -126,14 +109,12 @@ header .search-bar img {
 
 header .icons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 header .icons img {
   max-height: 20px;
-  margin-right: 0;
 }
-
 /* Offer Section Styles */
 .offer {
   display: flex;
@@ -608,7 +589,6 @@ footer {
 .save-text {
   font-size: 13px; 
   color: #FAFAFA;
-
   text-align: left;
   margin-bottom: 9px; 
 }
@@ -1219,15 +1199,15 @@ nav ul li a {
   margin-bottom: 20px; 
   }
 
-  .breadcrumb a {
+.breadcrumb a {
       text-decoration: none;
       color: #555;
-  }
+}
 
-  .breadcrumb a:hover {
+.breadcrumb a:hover {
       text-decoration: underline;
-  }
+}
 
-  .breadcrumb p {
+.breadcrumb p {
     margin: 0;
-  }
+}
