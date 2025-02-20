@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  padding-top: 70px;
+  padding-top: 100px;
 
 }
 .container {
@@ -17,7 +17,7 @@ body {
 
 header {
   background: #fff;
-  padding: 10px 0;
+  padding: 0 20px;
   border-bottom: 1px solid #ddd;
   width: 100%;
   position: fixed; /* Header fix ആക്കാൻ */
@@ -26,6 +26,9 @@ header {
   z-index: 1000; /* Other elements മുകളിൽ വരാൻ */
   height: 80px;
   line-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header .container {
@@ -42,26 +45,24 @@ header .logo {
   font-size: 24px;
   font-weight: bold;
   color: #000;
+  flex-shrink: 0;
 }
-
+header nav {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Center navigation links */
+}
 header nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
   margin: 0;
   padding: 0;
-  align-items: center;
 }
-
-header nav ul li {
-  white-space: nowrap;
-}
-
 header nav ul li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
-  position: relative;
 }
 
 header nav ul li a::after {
@@ -85,6 +86,7 @@ header .header-right {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex-shrink: 0;
 }
 
 header .search-bar {
@@ -94,12 +96,14 @@ header .search-bar {
   border-radius: 20px;
   padding: 5px 10px;
   gap: 5px;
+  background-color: #f9f9f9; /* Background color for search box */
 }
 
 header .search-bar input {
   border: none;
   outline: none;
   padding: 5px;
+  background: transparent;
 }
 
 header .search-bar img {
