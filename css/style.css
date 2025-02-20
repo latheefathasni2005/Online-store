@@ -2,7 +2,14 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+
 }
+.container {
+  max-width: 1200px; /* Set a fixed width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 20px; /* Add spacing on both sides */
+}
+
 header {
   background: #fff;
   padding: 0;
@@ -134,10 +141,11 @@ header .icons img {
   align-items: center; /* Vertically align items */
   background: #000; /* Black background */
   color: #fff; /* White text */
-  padding: 20px 40px; /* Adjust padding for spacing */
+  padding: 20px 30px; /* Adjust padding for spacing */
   border-radius: 10px; /* Rounded corners */
   margin: 20px auto;
-  max-width: 100%; /* Center the section */
+  max-width: 1600px; /* Restrict width to match the first image */
+  width: 95%; /* Responsive */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 

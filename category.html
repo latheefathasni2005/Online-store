@@ -199,10 +199,11 @@
       margin-right: 10px;
     }
     .footer-bottom {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 14px;
-      color: #ccc;
+        margin-top: 20px;
+        border-top: 1px solid #333;
+        padding-top: 10px;
+        font-size: 0.9rem;
+        text-align: center;
     }
     .footer-container {
       display: flex;
@@ -303,12 +304,17 @@
       flex-direction: column;/* Align Google Play and App Store images side by side */
       gap: 10px; /* Add consistent spacing between the images *//* Center align within the container */
     }
-    .footer-bottom { 
-      margin-top: 20px;
-      border-top: 1px solid #333;
-      padding-top: 10px;
-      font-size: 0.9rem;
-      text-align: center;
+    .footer-bottom {
+        text-align: center; /* Center align the text */
+        margin-top: 20px;
+        border-top: 1px solid #333;
+        padding-top: 10px;
+        font-size: 0.9rem;
+        color: #555; /* Set color to #555 for the copyright text */
+        width: 100%; /* Ensure the footer takes full width */
+        display: flex; /* Use flexbox to center */
+        justify-content: center; /* Horizontally center content */
+        align-items: center; /* Vertically center content */
     }
     .footer-section ul li a {
       color: #fff;
