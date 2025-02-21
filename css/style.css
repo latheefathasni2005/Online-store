@@ -17,16 +17,17 @@ body {
 
 header {
   background: #fff;
-  padding: 0 20px;
-  border-bottom: 2px solid #ccc;
   width: 100%;
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000; 
+  z-index: 1000;
   height: 80px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 50px; 
+  border-bottom: 2px solid #ccc;
 }
 
 header .container {
@@ -43,14 +44,13 @@ header .logo {
   font-size: 24px;
   font-weight: bold;
   color: #000;
-  flex-shrink: 0;
-  visibility: visible;
-  margin-right: auto;
+  margin-left: 20px
 }
 header nav {
   flex: 1;
   display: flex;
   justify-content: center; 
+  gap: 40px;
 }
 header nav ul {
   list-style: none;
@@ -86,9 +86,7 @@ header nav ul li a.active::after {
 header .header-right {
   display: flex;
   align-items: center;
-  gap: 15px;
-  flex-shrink: 0;
-  margin-left: auto
+  gap: 20px;
 }
 
 header .search-bar {
@@ -124,15 +122,15 @@ header .icons img {
 /* Offer Section Styles */
 .offer {
   display: flex;
-  justify-content: space-between; /* Space between text and image */
-  align-items: center; /* Vertically align items */
-  background: #000; /* Black background */
-  color: #fff; /* White text */
-  padding: 20px 30px; /* Adjust padding for spacing */
-  border-radius: 10px; /* Rounded corners */
+  justify-content: space-between; 
+  align-items: center;
+  background: #000; 
+  color: #fff; 
+  padding: 20px 30px;
+  border-radius: 10px; 
   margin: 20px auto;
-  max-width: 1600px; /* Restrict width to match the first image */
-  width: 95%; /* Responsive */
+  max-width: 1600px;
+  width: 95%; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -140,8 +138,8 @@ header .icons img {
   width: 40px;
   height: auto;
   margin-right: 10px;
-  vertical-align: middle; /* Align with text */
-  opacity: 1; /* Ensure visibility */
+  vertical-align: middle; 
+  opacity: 1; 
 }
 
 .offer-text h1 {
@@ -149,8 +147,8 @@ header .icons img {
   font-size: 24px;
   font-weight: 600;
   line-height: 1.5;
-  text-align: left; /* Align text left */
-  margin-bottom: 10px; /* Spacing below */
+  text-align: left;
+  margin-bottom: 10px; 
   display: flex;
   align-items: center;
 }
@@ -162,20 +160,20 @@ header .icons img {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: 0.04em;
-  text-align: left; /* Left-align as per requirement */
+  text-align: left; 
   margin-top: 10px;
 }
 
 .offer-subtitle span {
   display: block;
-  margin-top: 10px; /* Space between "Up to 10%" and "off Voucher" */
+  margin-top: 10px; 
 }
 
 /* Shop Now styles */
 .shop-now {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between text and arrow icon */
+  gap: 10px;
   margin-top: 20px;
   text-align: left;
 }
