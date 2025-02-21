@@ -6,9 +6,9 @@ body {
 
 }
 .container {
-  max-width: 1200px; /* Set a fixed width */
-  margin: 0 auto; /* Center the container */
-  padding: 0 20px; /* Add spacing on both sides */
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -18,23 +18,21 @@ body {
 header {
   background: #fff;
   padding: 0 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #ccc;
   width: 100%;
-  position: fixed; /* Header fix ആക്കാൻ */
+  position: fixed; 
   top: 0;
   left: 0;
-  z-index: 1000; /* Other elements മുകളിൽ വരാൻ */
+  z-index: 1000; 
   height: 80px;
-  line-height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 header .container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Items ശരിയായി position ആക്കാൻ */
+  justify-content: space-between; 
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -46,11 +44,13 @@ header .logo {
   font-weight: bold;
   color: #000;
   flex-shrink: 0;
+  visibility: visible;
+  margin-right: auto;
 }
 header nav {
   flex: 1;
   display: flex;
-  justify-content: center; /* Center navigation links */
+  justify-content: center; 
 }
 header nav ul {
   list-style: none;
@@ -63,6 +63,7 @@ header nav ul li a {
   text-decoration: none;
   color: #000;
   font-weight: 500;
+  position: relative;
 }
 
 header nav ul li a::after {
@@ -72,7 +73,7 @@ header nav ul li a::after {
   bottom: -5px;
   width: 100%;
   height: 2px;
-  background-color: #000;
+  background-color: #888;
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
@@ -87,6 +88,7 @@ header .header-right {
   align-items: center;
   gap: 15px;
   flex-shrink: 0;
+  margin-left: auto
 }
 
 header .search-bar {
@@ -96,7 +98,7 @@ header .search-bar {
   border-radius: 20px;
   padding: 5px 10px;
   gap: 5px;
-  background-color: #f9f9f9; /* Background color for search box */
+  background-color: #f9f9f9; 
 }
 
 header .search-bar input {
