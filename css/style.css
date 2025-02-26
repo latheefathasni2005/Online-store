@@ -1,113 +1,111 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  padding-top: 100px;
+  width:100%;
 
 }
 .container {
-  max-width: 1200px; 
-  margin: 0 auto; 
-  padding: 0 20px; 
-  display: flex;
+  max-width: 1200px; /* Keep this value consistent */
   width: 100%;
-  flex-direction: column;
-  align-items: center;
-}
-
-header {
-  background: #fff;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  height: 80px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px; 
-  border-bottom: 2px solid #ccc;
+}
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Header */
+header {
+  background: #fff;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
 }
 
 header .container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: space-between; 
-  max-width: 1200px;
   width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
-header .logo {
+.logo {
   font-size: 24px;
   font-weight: bold;
-  color: #000;
-  margin-left: 20px
+  margin-right: 10px;
 }
-header nav {
-  flex: 1;
+nav {
+  flex-grow: 1;
   display: flex;
-  justify-content: center; 
-  gap: 40px;
+  justify-content: center; /* Ensure center alignment */
 }
-header nav ul {
+nav ul {
   list-style: none;
   display: flex;
-  gap: 30px;
-  margin: 0;
   padding: 0;
+  margin: 0 ;
 }
-header nav ul li a {
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
   text-decoration: none;
-  color: #000;
-  font-weight: 500;
-  position: relative;
+  color: black;
+  font-weight: bold;
 }
 
-header nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 100%;
-  height: 2px;
-  background-color: #888;
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
+nav ul li a.active {
+  border-bottom: 2px solid gray;
 }
 
-header nav ul li a:hover::after,
-header nav ul li a.active::after {
-  transform: scaleX(1);
-}
-
-header .header-right {
+.search-bar {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-header .search-bar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  border: none; 
+  border-radius: 10px; 
   padding: 5px 10px;
-  gap: 5px;
-  background-color: #f9f9f9; 
+  background: #f8f8f8;
 }
 
-header .search-bar input {
+.search-bar input {
+  width: 180px;
   border: none;
   outline: none;
   padding: 5px;
-  background: transparent;
+}
+
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 header .search-bar img {
-  max-height: 20px;
+  max-height: 18px;
   cursor: pointer;
 }
 
@@ -119,19 +117,55 @@ header .icons {
 header .icons img {
   max-height: 20px;
 }
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Adjust space between search bar and icons */
+}
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.icons img {
+  max-height: 20px;
+}
+
+/* Fix spacing for better alignment */
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 150px;
+  }
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 10px;
+}
 /* Offer Section Styles */
 .offer {
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
-  background: #000; 
-  color: #fff; 
-  padding: 20px 30px;
-  border-radius: 10px; 
+  background: #000;
+  color: #fff;
+  padding: 60px 30px; /* Padding ചേർത്ത് height കൂടാൻ */
+  border-radius: 10px;
   margin: 20px auto;
   max-width: 1600px;
-  width: 95%; 
+  width: 95%;
+  min-height: 500px; /* Height കൂട്ടാൻ */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* താഴെയുള്ള section-നും അതേ width കിട്ടാൻ */
+.next-section { /* നിങ്ങളുടെ താഴെ section-ന്റെ class name ഇതിൽ മാറ്റുക */
+  margin-top: 0; /* Extra space avoid ചെയ്യാൻ */
+  width: 80%; /* Offer section-ന്റെ width same ആക്കണം */
+  max-width: 1200px; /* Max-width same */
+  padding: 40px; /* Padding match ചെയ്യുക */
 }
 
 .apple-logo {
