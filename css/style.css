@@ -23,7 +23,7 @@ body {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,7 +39,6 @@ header {
   right: 0;
   z-index: 1000; /* Ensure it stays above other content */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-bottom: 3px solid #000;
 }
 
 .container {
@@ -156,7 +155,7 @@ header .icons img {
   align-items: center;
   background: #000;
   color: #fff;
-  padding: 40px 30px; /* Padding ചേർത്ത് height കൂടാൻ */
+  padding: 40px 30px; 
   border-radius: 10px;
   margin: 20px auto;
   max-width: 1600px;
@@ -164,11 +163,9 @@ header .icons img {
   min-height: 400px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 80px;
+  margin-bottom: 10px;
 }
-
-
-/* താഴെയുള്ള section-നും അതേ width കിട്ടാൻ */
-.next-section { /* നിങ്ങളുടെ താഴെ section-ന്റെ class name ഇതിൽ മാറ്റുക */
+.next-section { 
   margin-top: 0; /* Extra space avoid ചെയ്യാൻ */
   width: 80%; /* Offer section-ന്റെ width same ആക്കണം */
   max-width: 1200px; /* Max-width same */
@@ -233,9 +230,12 @@ header .icons img {
 }
 /* Products Section */
 .products {
-  margin: 40px auto;
+  margin: 0 auto;
   padding: 20px;
   text-align: center;
+  max-width: 1150px;
+  width: 80%;
+  margin-bottom: 40px;
 }
 
 .products h2 {
@@ -246,13 +246,14 @@ header .icons img {
 
 /* Category List */
 .category-list {
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 15px;
 }
 .categories-section {
-  margin: 20px 0;
+  margin-top: 20px;
+
 }
 
 .categories-heading {
@@ -264,13 +265,13 @@ header .icons img {
   color: #FF0000; /* Red color for text */
   display: flex;
   align-items: center;
-  gap: 8px; /* Space between icon and text */
-  margin-bottom: 10px;
+  gap: 6px; 
+  margin-bottom: 20px;
 }
 .categories-icon {
   display: inline-block;
   width: 15px; /* Adjust size of the icon */
-  height: 28px;
+  height: 30px;
   background-color: #FF0000; /* Red color for the icon */
   border-radius: 2px;
 }
@@ -281,24 +282,25 @@ header .icons img {
   font-size: 24px;
   font-weight: 700;
   text-align: left;
-  margin: 10px 0 20px; /* Space between heading and subheading */
+  margin: 10px 0 20px;
 }
 
 .category {
+  flex: 1;
   text-align: center;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 15px;
+  padding: 12px;
   transition: box-shadow 0.3s ease;
 }
 
 .category img {
-  max-width: 60px; /* Resizes images */
-  margin-bottom: 10px;
+  max-width: 50px; /* Resizes images */
+  margin-bottom: 5px;
 }
 
 .category p {
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -314,8 +316,7 @@ header .icons img {
   gap: 20px;
 }
 
-.product {
-  border: 1px solid #ddd;
+.products {
   border-radius: 10px;
   padding: 15px;
   text-align: center;
