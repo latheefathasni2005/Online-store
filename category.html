@@ -10,129 +10,124 @@
       margin: 0;
       padding: 0;
     }
-
+    /* Header */
     header {
-    background: #fff;
-    padding: 0;
-    border-bottom: 1px solid #ddd;
-  
+      width: 100vw; /* Full viewport width */
+      background: #fff; /* White background */
+      position: fixed; /* Stick to top */
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000; /* Ensure it stays above other content */
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
-    header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* Distribute items evenly */
+    .container {
       width: 100%;
-      padding: 0;
-      margin: 0;
-
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
     }
 
-    header .logo {
-      font-size: 20px;
+    .logo {
+      font-size: 24px;
       font-weight: bold;
-      color: #000;
-      text-align: left;
+    }
+    nav {
+      flex-grow: 1;
       display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-      margin-left: 50px;
+      justify-content: center; /* Ensure center alignment */
     }
-
-    header nav {
-      flex-grow: 1; /* Allow the navigation to take up available space */
-      text-align: center; /* Center align the list */
-    }
-    header nav ul li a {
-      text-decoration: none; /* Remove default underline */
-      color: #000;
-      position: relative; /* Enable positioning for underline */
-    }
-    header nav ul li a {
-      text-decoration: none; /* Remove default underline */
-      color: #000; /* Text color */
-      position: relative; /* Needed for ::after positioning */
-    }
-
-    header nav ul li a::after {
-      content: ""; /* Creates an empty element for the underline */
-      position: absolute; /* Position it relative to the link */
-      left: 0; /* Start underline at the left */
-      bottom: -2px; /* Place it slightly below the text */
-      width: 100%; /* Full width of the text */
-      height: 2px; /* Thickness of the underline */
-      background-color: #000; /* Black underline */
-      visibility: hidden; /* Hide by default */
-      transform: scaleX(0); /* Start with no width */
-      transition: transform 0.3s ease, visibility 0.3s ease; /* Smooth animation */
-    }
-
-    header nav ul li a:hover::after,
-    header nav ul li a.active::after { /* Or if it’s the active link */
-      visibility: visible;
-      transform: scaleX(1); /* Expand the underline */
-    }
-
-
-    header nav ul {
+    nav ul {
       list-style: none;
-      display: inline-flex; /* Use inline-flex to center in nav */
-      gap: 50px;
-      margin: 0;
+      display: flex;
       padding: 0;
-      align-items: center;
-      margin-left: 450px;
-    }
-    header nav ul li {
-      white-space: nowrap; /* Prevent text wrapping */
+      margin: 0 ;
     }
 
+    nav ul li {
+      margin: 0 20px;
+    }
 
-    header nav ul li a {
+    nav ul li a {
       text-decoration: none;
-      color: #000;
+      color: black;
+      font-weight: bold;
     }
 
-    header nav ul li a:hover {
-      text-decoration: underline;
+    nav ul li a.active {
+      border-bottom: 2px solid gray;
     }
 
-    header .header-right {
+    .search-bar {
       display: flex;
       align-items: center;
-      gap: 20px;
+      border-radius: 20px; 
+      padding: 5px 15px;
+      background: #f8f8f8;
     }
 
-    header .search-bar {
-      display: flex;
-      align-items: center;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 5px;
-      gap: 5px;
-      margin-left: 300px;
-    }
-
-    header .search-bar input {
+    .search-bar input {
+      width: 180px;
       border: none;
       outline: none;
       padding: 5px;
+      background: transparent;
+    }
+
+
+    .search-bar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
     }
 
     header .search-bar img {
-      max-height: 20px;
+      max-height: 18px;
       cursor: pointer;
     }
-
+    .search-bar img.search-icon {
+      max-height: 16px;
+      cursor: pointer;
+      margin-left: 5px;
+    }
     header .icons {
       display: flex;
-      gap: 10px;
+      gap: 15px;
     }
 
     header .icons img {
       max-height: 20px;
-      margin-right: 0;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px; /* Adjust space between search bar and icons */
+    }
+    .icons {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .icons img {
+      max-height: 20px;
+    }
+
+    /* Fix spacing for better alignment */
+    @media (max-width: 768px) {
+      .search-bar input {
+        width: 150px;
+      }
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin-left: 10px;
     }
     .related-items {
       background-color: #f8f8f8;
@@ -801,25 +796,27 @@
 </head>
 <body>
   <!-- Header Section -->
+  <!-- Header -->
   <header>
     <div class="container">
       <div class="logo">Exclusive</div>
-      <nav>
-        <ul>
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Sign Up</a></li>
-        </ul>
-      </nav>
-      <div class="header-right">
-        <div class="search-bar">
-          <input type="text" placeholder="What are you looking for?">
-          <img src="./images/search.svg" alt="Search Icon">
-        </div>
-        <div class="icons">
-          <a href="#"><img src="./images/wishlist.svg" alt="Wishlist"></a>
-          <a href="#"><img src="./images/Cart.svg" alt="Cart"></a>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Sign Up</a></li>
+          </ul>
+        </nav>
+        <div class="header-right">
+          <div class="search-bar">
+            <input type="text" placeholder="What are you looking for?">
+            <img src="./images/search.svg" alt="Search Icon">
+            </div>
+            <div class="icons">
+                  <a href="#"><img src="./images/wishlist.svg" alt="wishlist"></a>
+                  <a href="#"><img src="./images/cart.svg" alt="Cart"></a>
+            </div>
         </div>
       </div>
     </div>
