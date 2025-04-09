@@ -146,6 +146,14 @@ header .icons img {
   font-size: 24px;
   font-weight: bold;
   margin-left: 10px;
+  text-decoration: none;
+  color: #000;
+}
+.logo a {
+  text-decoration: none;
+  color: #000;
+  font-size: 24px;
+  font-weight: bold;
 }
 /* Offer Section Styles */
 .offer {
