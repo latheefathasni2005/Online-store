@@ -2,14 +2,8 @@ body {
   margin: 0;
   padding: 0;
   width:100%;
-}
-.container {
-  max-width: 1200px; /* Keep this value consistent */
-  width: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-top: 80px;
+  margin-top: 120px;
 }
 /* General Styles */
 body {
@@ -18,7 +12,7 @@ body {
   padding: 0;
   background-color: #f8f8f8;
 }
-
+/* Top */
 .container {
   width: 90%;
   max-width: 1200px;
@@ -26,11 +20,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 10px 20px;
 }
 
+.top-banner {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 9px 0;
+  margin: 0;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+}
+.top-banner a{
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-left: 5px;
+}
+.language-select {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  right: 195px;
+  top: 10px;
+  z-index: 1002;
+}
+
+.language-select .lang-text {
+  margin-right: 5px;
+}
+
+.language-select .lang-arrow {
+  font-size: 12px;
+}
 /* Header */
 header {
-  width: 100vw; /* Full viewport width */
+  width: 100%; /* Full viewport width */
   background: #fff; /* White background */
   position: fixed; /* Stick to top */
   top: 0;
@@ -38,21 +73,21 @@ header {
   right: 0;
   z-index: 1000; /* Ensure it stays above other content */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  margin: 0;
+  padding: 0;
+  height: 80px;
+  margin-top: 40px;
 
-.container {
+}
+header.container {
   width: 100%;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
+  padding: 10px 20px ;
+  height: 80px;
 }
 nav {
   flex-grow: 1;
@@ -74,10 +109,11 @@ nav ul li a {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
 }
-
-nav ul li a.active {
-  border-bottom: 2px solid gray;
+nav ul li a:hover {
+  border-bottom: 2px solid #000;
 }
 
 .search-bar {
@@ -90,7 +126,7 @@ nav ul li a.active {
 
 .search-bar input {
   width: 180px;
-  border: none;
+  border: none !important;
   outline: none;
   padding: 5px;
   background: transparent;
@@ -125,7 +161,8 @@ header .icons img {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 20px; /* Adjust space between search bar and icons */
+  gap: 20px;
+
 }
 .icons {
   display: flex;
@@ -155,6 +192,13 @@ header .icons img {
   font-size: 24px;
   font-weight: bold;
 }
+.header-divider {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 0;
+  margin-top: 80x;
+}
 /* Offer Section Styles */
 .offer {
   display: flex;
@@ -164,19 +208,21 @@ header .icons img {
   color: #fff;
   padding: 40px 30px; 
   border-radius: 10px;
-  margin: 20px auto;
+  margin: 0 auto;
   max-width: 1600px;
-  width: 95%;
+  width: 150%;
   min-height: 400px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 80px;
+  margin-top: 120px;
   margin-bottom: 10px;
+  position: relative;
+  transform: translateX(-1%);
 }
 .next-section { 
   margin-top: 0; /* Extra space avoid ചെയ്യാൻ */
   width: 80%; /* Offer section-ന്റെ width same ആക്കണം */
   max-width: 1200px; /* Max-width same */
-  padding: 40px; /* Padding match ചെയ്യുക */
+  padding: 40px; /
 }
 
 .apple-logo {
@@ -193,7 +239,7 @@ header .icons img {
   font-weight: 600;
   line-height: 1.5;
   text-align: left;
-  margin-bottom: 10px; 
+  margin-bottom: 30px; 
   display: flex;
   align-items: center;
 }
@@ -201,30 +247,36 @@ header .icons img {
 /* Offer subtitle (P) styles */
 .offer-subtitle {
   font-family: "Inter", sans-serif;
-  font-size: 48px;
+  font-size: 44px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
   letter-spacing: 0.04em;
   text-align: left; 
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .offer-subtitle span {
   display: block;
-  margin-top: 10px; 
+  margin-top: 12px; 
 }
 
 /* Shop Now styles */
 .shop-now {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 10px;
   margin-top: 20px;
   text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: underline;
+  text-decoration-color:#fff ;
+  cursor: pointer;
 }
 
 .shop-now span {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
   color: #fff;
   text-decoration: underline;
@@ -376,14 +428,15 @@ header .icons img {
 }
 
 .featured-product {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  position: relative;
+  padding: 10px; /* white space around inner box */
+  margin: 10px;
+  border-radius: 10px;
+  background: white; /* make outer box white */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 .icon-container {
   position: absolute; 
@@ -456,7 +509,7 @@ header .icons img {
   padding: 20px;
   margin: 10px;
   border-radius: 8px;
-  background-color: #fff;
+  background: #f5f5f5;
 }
 .price-rating-container {
   display: flex;
@@ -466,10 +519,11 @@ header .icons img {
   margin-top: 10px; 
 }
 .separator-line {
-  width: 100%; 
-  height: 2px; 
+  width: 110%; 
+  height: 0.5px ; 
   background-color: #ccc;
-  margin: 10px 0; 
+  margin: 15px; 
+  display: block;
 }
 
 .featured-product h3 {
@@ -494,10 +548,12 @@ header .icons img {
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
+  display: none;
 }
 
 .featured-product button:hover {
   background-color: #444;
+  display: block;
 }
 
 .featured-product:hover {
