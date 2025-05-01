@@ -10,6 +10,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       background-color: #fff;
+      padding-top: 100px;
     }
     .container {
       max-width: 1200px; 
@@ -19,16 +20,55 @@
       align-items: center;
       justify-content: space-between;
     }
-    /* Header */
-    header {
-      width: 100vw; /* Full viewport width */
-      background: #fff; /* White background */
-      position: fixed; /* Stick to top */
+    .top-banner {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;          /* Reduced padding */
+      font-size: 13px;
+      position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      z-index: 1000; /* Ensure it stays above other content */
+      width: 100%;
+      z-index: 1001;
+      height: 30px;  
+    }
+    .top-banner a{
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-left: 5px;
+    }
+    .language-select {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      cursor: pointer;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+      position: absolute;
+      right: 195px;
+      top: 10px;
+      z-index: 1002;
+    }
+
+    .language-select .lang-text {
+      margin-right: 5px;
+    }
+
+    .language-select .lang-arrow {
+      font-size: 12px;
+    }
+    /* Header */
+    header {
+      background: #fff;
+      position: fixed;
+      top: 30px;               /* Banner height */
+      left: 0;
+      width: 100%;
+      z-index: 1000;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px 0;
     }
     .container {
       width: 100%;
@@ -796,10 +836,18 @@
     .footer-section button {
       display: none;
     }
+    
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="top-banner">
+      Summer Sale For All Swim Suits And Free Express Delivery – OFF 50%! <a href="#">ShopNow</a>
+      <div class="language-select">
+        <span class="lang-text">English</span>
+        <span class="lang-arrow">&#9662;</span>
+      </div>
+    </div>
     <!-- Header -->
     <header>
       <div class="container">
